@@ -187,10 +187,9 @@ export class RoomComparissonComponent implements OnInit {
       var baixo2 = new Date(parseInt(b2[0]), parseInt(b2[1])-1, parseInt(b2[2]));
       var baixo3 = new Date(parseInt(b3[0]), parseInt(b3[1])-1, parseInt(b3[2]));
       var baixo4 = new Date(parseInt(b4[0]), parseInt(b4[1])-1, parseInt(b4[2]));
-      let d = new Date("2020-01-01");
       console.log('0');
       console.log(this.entrada);
-      for (d; d < this.saida; d.setDate(d.getDate() + 1)) {
+      for (let d = this.entrada; d < this.saida; d.setDate(d.getDate() + 1)) {
         console.log('1');
         console.log(this.entrada);
         console.log(d);
