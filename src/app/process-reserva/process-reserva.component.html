@@ -1,0 +1,19 @@
+<h2>Processo Reserva</h2>
+
+<div *ngIf="reserva">
+    <div>
+        <label>Data de início: </label>
+        <input type="date" [(ngModel)]="reserva.data_inicio"/>
+        <br>
+        <label>Data de fim: </label>
+        <input type="date" [(ngModel)]="reserva.data_fim"/>
+        <br>
+        <label>Tipo de quarto: 
+            <select [(ngModel)]="reserva.tipo_de_quarto">
+                <option *ngFor="let quarto of quartos">
+                {{quarto.tipo}}
+                </option>
+            </select>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div id="main" *ngIf="hotel">
+  <div class="descricao">
+    <div id=nome>
+      <h2>{{hotel.nome}}</h2>
+    </div>
+    <p id=descricao>{{hotel.descricao}}</p>
+  </div>
+  <div id=servicos>
+    <span id=servico>Serviços:</span>
+    <ul *ngFor="let servico of hotel.servicos">
+      <li>{{servico}}</li>
+    </ul>
+  </div>
+
+  <div id="photos" *ngFor="let imagem of listaUrls">
+    <img [src]="imagem" alt="Erro ao carregar imagem">
+  </div>
+  <div id="container">
+    <button class="learn-more" routerLink="/quartos/{{hotel._id}}">
+      <span class="circle" aria-hidden="true">
+        <span class="icon arrow"></span>
+      </span>
+      <span class="button-text">Ver Quartos</span>
+    </button>
+  </div>
+  <div class="quartosDisponiveis">
+    <p>Total de quartos ainda disponiveis: <b>{{totalQuartos}}</b></p>
+    <ul *ngFor="let quarto of quartos">
+      <p>Existem <b>{{quarto.numQuartos}}</b> quartos do tipo {{quarto.tipo}} disponiveis</p>
+    </ul>
+    <p>Desde {{precoMaisBaixo}}€</p>
+  </div>
+
+
+  <footer>
+    <div class="morada">
+      <p>{{hotel.morada}}</p>
+    </div>
+    <div class="informacao">
+      <a href="" class="coordenadas">
+        {{hotel.coordenadas}}
+      </a>
+      <a href="" class="telefone">
+        {{hotel.telefone}}
+      </a>
+      <a href="" class="email">
+        {{hotel.email}}
+      </a>
+    </div>
+
+
+  </footer>
+  <!--<div id=quartos>{{hotel.quartos.length}}</div>-->
+  <!--<div id=tiposQuarto>tiposQuarto</div>-->
+</div>

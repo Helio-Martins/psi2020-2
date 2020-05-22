@@ -1,0 +1,21 @@
+<div id="main" *ngIf="quarto">
+	<h2>
+		<div id=numero>{{quarto.tipo}}</div>
+	</h2>
+  <!--<div id=precoBaixo>Quartos disponiveis: {{quarto.numero}}</div>-->
+  <div id=precos>
+    <span id=preco>(15 janeiro - 31 maio; 30 setembro - 15 dezembro) <br>
+      Preco Época Baixa: </span>{{quarto.precoEpocaBaixa}}€
+    <br>
+    <br>
+    <span id=preco>(1 junho - 29 setembro; 16 dezembro - 14 janeiro) <br>
+      Preco Época Alta: </span>{{quarto.precoEpocaAlta}}€
+  </div>
+  <br>
+	<div id=servicos>
+    <span id=servico>Serviços:</span>
+  	<ul *ngFor="let servico of quarto.caracteristicas">
+  			<li>{{servico}}</li>
+  	</ul>	
+  </div>
+</div>

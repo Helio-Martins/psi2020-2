@@ -1,0 +1,74 @@
+<h2>Quartos Disponiveis</h2>
+
+<!--
+Filtro de preços  
+-->
+<label>Preço minimo:
+	<input #precoMin>
+</label>
+<br>
+<label>Preço maximo:
+	<input #precoMax>
+</label>
+<br>
+<!--
+Filtro de datas  
+-->
+<label>Data de entrada:
+	<input #dataEntrada placeholder="AAAA-MM-DD">
+</label>
+<br>
+<label>Data de saída:
+	<input #dataSaida placeholder="AAAA-MM-DD">
+</label>
+<br>
+<button (click)="filter(precoMin.value, precoMax.value, dataEntrada.value, dataSaida.value); precoMin.value=''; precoMax.value=''; dataEntrada.value=''; dataSaida.value=''">
+	Filtrar
+</button>
+
+<br>
+<br>
+<!--
+Reset dos quartos
+-->
+<button (click)="reset()">
+	Reset
+</button>
+<br>
+<!--
+Print dos filtros
+-->
+Filtros atuais
+<br>
+Preço minimo: {{this.minPreco}}€<br>
+Preço maximo: {{this.maxPreco}}€<br>
+Data de entrada: {{this.entradaStr}}<br>
+Data de saida: {{this.saidaStr}}<br>
+<br>
+<!--
+Print dos quartos
+-->
+<div id="main" *ngIf="quartos">
+	<div id=quartos>
+		<span id=quarto>Quartos</span>
+		<ul *ngFor="let quarto of filtrados">
+			<a routerLink="/quarto/{{quarto._id}}">{{quarto.tipo}}</a>
+			<br>
+			<br>
+			Preços por noite
+			<br>
+			- Época baixa: {{quarto.precoEpocaBaixa}}€
+			<br>
+			- Época alta: {{quarto.precoEpocaAlta}}€
+			<br>
+			<br>
+			Serviços:
+			<ul *ngFor="let servico of quarto.caracteristicas">
+				<li>{{servico}}</li>
+			</ul>
+      <br>
+      Preço de reserva para as datas especificadas:
+      {{quarto.precoEpocaBaixa*this.diasBaixo+quarto.precoEpocaAlta*this.diasAlto}}€
+		</ul>
+	</div>
+</div>
